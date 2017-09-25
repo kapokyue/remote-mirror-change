@@ -51,11 +51,15 @@ var parse_status = function ( str ) {
     return status;
 };
 
+var exec = require( 'child_process' ).exec;
+
+var cmd = 'git status --porcelain -b';
+
 module.exports = function ( callback ) {
-    var exec = require( 'child_process' ).exec;
-    var cmd = 'git status --porcelain -b';
-    exec( cmd, function ( err, stdout ) {
-        if ( err ) return callback( err );
-        callback( null, parse_status( stdout ) );
+    return new Promise( ( res, rej ) => {
+        exec( cmd, function ( err, stdout ) {
+            if ( err ) rej( err );
+            else res( parse_status( stdout ) );
+        } );
     } );
 };

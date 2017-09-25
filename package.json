@@ -10,7 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "chokidar": "^1.7.0",
-    "mirror-folder": "^2.1.1",
     "mkdirp": "^0.5.1",
     "rimraf": "^2.6.1"
   }
