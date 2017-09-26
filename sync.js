@@ -18,7 +18,7 @@ var gitRevParse = require( './git-rev-parse' );
 Promise.all( [ gitRevParse( '.' ), gitRevParse( PATH ) ] ).then( ( [ hash1, hash2 ] ) => {
 
     if ( hash1 != hash2 ) {
-        return console.error( 'To commit is not the same' );
+        return console.error( 'Commit is not the same !' );
     }
 
     var copy = file => {
